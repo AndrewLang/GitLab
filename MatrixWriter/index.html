@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <base href="./">
+    <!-- this is very important -->
+    <meta charset="UTF-8">
+    <title>Matrix Writer</title>
+
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="node_modules/tether/dist/css/tether.min.css" />
+    <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="dist/app.css" />
+</head>
+
+<body>
+    <app>
+        <div class="text-xs-center center-block">
+            <i class="fa fa-spinner fa-spin fa-3x"> </i>
+            <h5>Loading...</h5>
+        </div>
+    </app>
+</body>
+
+<!-- 1. Load libraries -->
+<!-- Polyfill(s) for older browsers -->
+<script src="node_modules/typescript/lib/typescript.js"></script>
+<script src="node_modules/core-js/client/shim.min.js"></script>
+<script src="node_modules/zone.js/dist/zone.js"></script>
+<script src="node_modules/reflect-metadata/Reflect.js"></script>
+
+<script src="node_modules/systemjs/dist/system.src.js"></script>
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="node_modules/jquery/dist/jquery.min.js"><\/script>');
+</script>
+<script src="node_modules/tether/dist/js/tether.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<!--<script src="dist/app.js"></script>-->
+
+<!-- 2. Configure SystemJS -->
+<script src="systemjs.config.js"></script>
+<script src="node_modules/tinymce/tinymce.min.js"></script>
+<script>
+    const electron = require('electron');
+    const fs = require('fs');
+    const NjPath = require('path');
+    const Cryptr = require('crypto');
+
+
+    System.set('electron', System.newModule(electron));
+    System.set('fs', System.newModule(fs));
+    System.set('NjPath', System.newModule(NjPath));
+    System.set('Cryptr', System.newModule(Cryptr));
+
+    System.import('app')
+        .catch(function(err) {
+            console.error(err);
+        });
+</script>
+
+</html>

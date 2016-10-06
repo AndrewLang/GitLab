@@ -1,0 +1,33 @@
+<header>
+    <div class="row">
+        <div class="quick-tools">
+            <button class="toolbar-btn" [ngClass]="{'mce-disabled':!CanPublish()}" (click)="CanPublish() && Publish()" title="Publish">
+                <figure>
+                    <i class="fa fa-cloud-upload fa-2x"></i>
+                    <figcaption> Publish </figcaption>
+                </figure>
+            </button>
+        </div>
+        <div class="main-tools">
+            <div id="textEditorToolbar" class="editorToolbar">
+
+            </div>
+        </div>
+    </div>
+
+</header>
+
+<div class="postTitle">
+    <input type="text" placeholder="Enter post title" tabindex="1" [(ngModel)]="CurrentPost.Post.Title" />
+</div>
+
+
+<div class="postBody">
+    <div id="postContent" class="htmlEditor" tabindex="2" [innerHtml]="HtmlContent" HtmlEditor>
+
+    </div>
+</div>
+
+<footer>
+
+</footer>

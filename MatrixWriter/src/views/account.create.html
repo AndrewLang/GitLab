@@ -1,0 +1,96 @@
+<div class="container-fluid background-image">
+
+    <div id="wizardPanel" class="center-xy">
+        <div class="card ">
+            <div class="card-header">
+                <h4 class="card-title">{{Title}}</h4>
+                <h6 class="card-subtitle text-muted">{{Subtitle}}</h6>
+            </div>
+            <div class="card-block">
+                <div class="row">
+                    <ul class='nav nav-wizard'>
+                        <li [ngClass]="{'active':CurrentStep==1}">
+                            <p>Blog service</p>
+                        </li>
+                        <li [ngClass]="{'active':CurrentStep==2}">
+                            <p>Account</p>
+                        </li>
+                        <li [ngClass]="{'active':CurrentStep==3}">
+                            <p>Process</p>
+                        </li>
+                        <li [ngClass]="{'active':CurrentStep==4}">
+                            <p>Finish</p>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane fade" [ngClass]="{'in active':CurrentStep==1}" id="step1">
+                            <h4>Choose a blog service</h4>
+
+                            <div class="form-check" *ngFor="let blog of SupportBlogs">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" [(ngModel)]="SelectedBlogId"
+                                           name="blogService" id="{{blog.Name}}" [value]="blog.Id">
+                                     {{blog.Name}} 
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" [ngClass]="{'in active':CurrentStep==2}" id="step2">
+                            <h4>Blog account</h4>
+                            <div>
+                                <div class="form-group">
+                                    <label for="InputUrl">Web address of your blog</label>
+                                    <input type="text" class="form-control" [(ngModel)]="Account.HomeUrl" id="InputUrl" placeholder="Enter address of your blog" required>
+                                    <small id="emailHelp" class="form-text text-muted">Normally this address is the home page of your blog.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputEInputUsermail1">User name</label>
+                                    <input type="text" class="form-control" [(ngModel)]="Account.UserName" id="InputUser" placeholder="Enter your user name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputPassword">Password</label>
+                                    <input type="password" class="form-control" [(ngModel)]="Account.Password" id="InputPassword" placeholder="Enter your password" required>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" [(ngModel)]="Remember"> Remember my password
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" [ngClass]="{'in active':CurrentStep==3}" id="step3">
+                            <label>{{ProcessState}}</label>
+                            <progress class="progress progress-striped progress-animated" value="{{DetectProgress}}" max="{{DetectTotal}}" aria-describedby="-caption-2"></progress>
+                        </div>
+
+                        <div class="tab-pane fade" [ngClass]="{'in active':CurrentStep==4}" id="step4">
+                            <h4>Your blog has been set up</h4>
+                            <p>Please confirm that you would like to save this blog</p>
+
+                            <div class="form-group">
+                                <label for="InputNickname">Blog nickname</label>
+                                <input type="text" class="form-control" id="InputNickname" [(ngModel)]="Account.NickName" placeholder="Enter a nick name for your blog">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <progress class="progress thinProgress" value="{{CurrentStep}}" max="{{TotalSteps}}" aria-describedby="-caption-2"></progress>
+                </div>
+
+                <div id="buttonBar" class="row">
+                    <div class="text-xs-right">
+                        <button type="button" class="btn btn-secondary" [ngClass]="{'disabled': !CanGoPrevious()}" (click)="Previous()">Back</button>
+                        <button type="button" class="btn btn-primary" [ngClass]="{'disabled': !CanGoNext(), 'collapse':CanFinish()}" (click)="CanGoNext() && Next()">Next</button>
+                        <button type="button" class="btn btn-primary" [ngClass]="{'collapse': !CanFinish()}" (click)="Finish()">Finish</button>
+                        <button type="button" class="btn btn-secondary" (click)="Cancel()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

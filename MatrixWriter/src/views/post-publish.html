@@ -1,0 +1,39 @@
+<div class="modal fade" id="modal_of_dialog_host">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" *ngIf="showClose" [ngClass]="{'disabled':!CanClose()}" (click)="CanClose() && Cancel()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                <h4 *ngIf='Title' class="modal-title">{{ Title }}</h4>
+            </div>
+            <div class="modal-body min-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="alert alert-success" *ngIf="Success">
+                            <i class="fa fa-check fa-2x fa-fw"></i>
+                            <span>{{Status}}</span>
+                        </div>
+                        <div class="alert alert-danger" *ngIf="Failed">
+                            <i class="fa fa-exclamation-circle fa-2x fa-fw"></i>
+                            <span>{{Status}}</span>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="!Finished">
+                        <div class="col-sm-3">
+                            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                        </div>
+                        <div class="col-sm-9">
+                            <p>{{Status}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" *ngIf="UseCancel()" [ngClass]="{'disabled':!CanClose()}" (click)="CanClose() && Cancel()">{{LabelCancel}}</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" [ngClass]="{'disabled':!CanSubmit()}" (click)="CanSubmit() && Submit()">{{LabelSubmit}}</button>
+            </div>
+        </div>
+    </div>
+</div>

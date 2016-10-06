@@ -1,0 +1,178 @@
+<!--<div class="container-fluid welcome">
+
+    <div class="row">
+        <div class="col-sm-12 col-md-5">
+            <div class="welcome-header">
+                <h2>Welcome to Matrix Writer</h2>
+                <h3>Matrix Writer is an easy and comfortable way to write blog.</h3>
+                <div>
+                    <ul>
+                        <li>Matrix Writer is a powerful, lightweight, offline blog editor.</li>
+                        <li>Support WordPress, Blogger, TypePad, Moveable Type DasBlog etc.</li>
+                        <li>Share blog to Facebook, Twitter and Google+ etc.</li>
+                    </ul>
+                </div>
+                <img class="welcome-logo" src="src/assets/img/about.jpg" alt="Welcome to Matrix Writer">
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-7">
+
+            <div class="welcome-body">
+                <div class="card">
+                    <div class="card-header">
+                        <svg class="section-icon">
+                            <use xlink:href="src/assets/img/icons.svg#icon-windows"></use>
+                        </svg> Quick Start
+                    </div>
+
+                    <div class="card-block">
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <div class="light-header">My Blogs</div>
+                            </div>
+                            <div class="col-xs-2">
+                                <button type="button" id="button-open-post" title="Connect to a blog account" class="nav-button text-xs-right" (click)="CreateAccount()" *ngIf="HasAccount">
+                                    <i class="fa fa-user-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-6" *ngFor="let blog of Accounts">
+                                <div class="card">
+                                    <div class="card-block">
+                                        <div class="row">
+                                            <div class="col-xs-6 col-sm-8">
+                                                <p class="card-title"> <i class="fa fa-rss"></i> {{blog.NickName}}</p>
+                                            </div>
+
+                                            <div class="col-xs-6 col-sm-4">
+                                                <button type="button" id="button-open-post" title="More" class="nav-button text-xs-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" title="View this blog"><i class="fa fa-eye"></i> View Blog</a>
+                                                    <a class="dropdown-item" title="Remove this blog"><i class="fa fa-times"></i> Remove </a>
+                                                    <a class="dropdown-item" title="Update this blog"><i class="fa fa-refresh"></i> Update</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" id="button-open-post" title="Connect to a blog account" class="nav-button full" (click)="CreateAccount()" *ngIf="!HasAccount">
+                            <i class="fa fa-user-plus"></i> <em>Connect to a blog account</em>
+                        </button>
+
+
+                        <hr/>
+                        <button type="button" id="button-create-post" title="Write a new post" class="nav-button full" (click)="CreatePost()"> <i class="fa fa-file-o"></i> <em>Write a new post</em></button>
+                        <button type="button" id="button-open-post" title="Open an existing post" class="nav-button full" (click)="OpenPostFromFolder()"><i class="fa fa-folder-open-o"></i> <em>Open post</em></button>
+                    </div>
+                </div>
+
+                <div class="card" *ngIf="RecentPosts && RecentPosts.length>0">
+                    <div class="card-header">
+                        <svg class="section-icon">
+                            <use xlink:href="src/assets/img/icons.svg#icon-native-ui"></use>
+                        </svg> Recent Posts
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" *ngFor="let post of RecentPosts" title="{{post.FullName}}">
+                            <button type="button" id="button-open-post" title="Open {{post.Name}}" class="nav-button full" (click)="OpenPost(post)"><i class="fa fa-file-text-o"></i> {{post.Name}} <span class="pull-right"> {{post.CreatedDate | date}}</span></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="cards-grid" data-columns>
+            <div class="card-grid-col">
+                <article class="card-typical">
+                    <div class="card-typical-section">
+                        <div class="user-card-row">
+                            <div class="tbl-row">
+                                <div class="tbl-cell tbl-cell-photo">
+                                    <a href="#">
+                                        <img src="img/photo-64-2.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="tbl-cell">
+                                    <p class="user-card-row-name"><a href="#">Tim Colins</a></p>
+                                    <p class="color-blue-grey-lighter">3 days ago - 23 min read</p>
+                                </div>
+                                <div class="tbl-cell tbl-cell-status">
+                                    <a href="#" class="font-icon font-icon-star active"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-typical-section card-typical-content">
+                        <div class="photo">
+                            <img src="img/gall-img-1.jpg" alt="">
+                        </div>
+                        <header class="title"><a href="#">The Jacobs Ladder of coding</a></header>
+                        <p>That’s a great idea! I’m sure we could start this project as soon as possible. Let’s meet tomorow!</p>
+                    </div>
+                    <div class="card-typical-section">
+                        <div class="card-typical-linked">in <a href="#">Coders Life</a></div>
+                        <a href="#" class="card-typical-likes">
+                            <i class="font-icon font-icon-heart"></i> 123
+                        </a>
+                    </div>
+                </article>
+                <!--.card-typical-->
+            </div>
+            <!--.card-grid-col-->
+
+            <div class="card-grid-col">
+                <article class="card-typical">
+                    <div class="card-typical-section">
+                        <div class="user-card-row">
+                            <div class="tbl-row">
+                                <div class="tbl-cell tbl-cell-photo">
+                                    <a href="#">
+                                        <img src="img/avatar-1-64.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="tbl-cell">
+                                    <p class="user-card-row-name"><a href="#">Tim Colins</a></p>
+                                    <p class="color-blue-grey-lighter">3 days ago - 23 min read</p>
+                                </div>
+                                <div class="tbl-cell tbl-cell-status">
+                                    <a href="#" class="font-icon font-icon-star"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-typical-section card-typical-content">
+                        <header class="title"><a href="#">The Jacobs Ladder of coding</a></header>
+                        <p>That’s a great idea! I’m sure we could start this project as soon as possible. Let’s meet tomorow! That’s a great idea! I’m sure we could start this project as soon as possible. Let’s meet tomorow! </p>
+                    </div>
+                    <div class="card-typical-section">
+                        <div class="card-typical-linked">in <a href="#">Coders Life</a></div>
+                        <a href="#" class="card-typical-likes">
+                            <i class="font-icon font-icon-heart"></i> 123
+                        </a>
+                    </div>
+                </article>
+                <!--.card-typical-->
+            </div>
+
+            <!--.card-grid-col-->
+        </div>
+        <!--.card-grid-->
+        <div class="clear"></div>
+
+    </div>
+    <!--.container-fluid-->
+</div>
